@@ -54,10 +54,13 @@ if(reg_title == expected_title):
         confirm_req_text = confirmPass.text
 
 
-        if(firstName_req_text == Utilities.firstName_RMS and lastName_req_text == Utilities.lastName_RMS and addr_req_text == Utilities.addr_RMS and city_req_text == Utilities.city_RMS and state_req_text == Utilities.state_RMS and zip_req_text == Utilities.zipCode_RMS and ssn_req_text == Utilities.ssn_RMS and userName_req_text == Utilities.userName_RMS and pass_req_text == Utilities.pass_RMS and confirm_req_text == Utilities.confirmPass_RMS):
+        if(firstName_req_text == Utilities.firstName_RMS and lastName_req_text == Utilities.lastName_RMS and addr_req_text == Utilities.addr_RMS and city_req_text == Utilities.city_RMS and state_req_text == Utilities.state_RMS and zip_req_text == Utilities.zipCode_RMS and ssn_req_text == Utilities.ssn_RMS and userName_req_text == Utilities.userName_RMS and pass_req_text == Utilities.pass_RMS and confirm_req_text == Utilities.confirmPass_RMS
+        and driver.current_url == "https://parabank.parasoft.com/parabank/register.htm" and driver.title == "ParaBank | Register for Free Online Account Access"):
             print("Test Case-1:", Utilities.success_status)
+        else:
+            print("Test Case-1:", Utilities.failure_status, driver.current_url)
     except:
-        print("Test Case-1:", Utilities.failure_status)
+        print("Failed to perform test case 7")
 
     try:
         time.sleep(3)

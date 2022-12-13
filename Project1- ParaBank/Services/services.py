@@ -43,7 +43,7 @@ try:
             reteatation = r
             if bookStoreWS == "WSDL :" and reteatation == Utils.rpdTime:
                 print("TestCase -2: Passed")
-        print("Total repeated time:", reteatation)
+        # print("Total repeated time:", reteatation)
     else:
         print("Services page not found.")
 
@@ -97,6 +97,42 @@ try:
             print("TestCase -5: Passed.", "Position", "(",r,",",col,")")
 except:
     print("Doesn't perform TestCase -5")
+
+# Count number of rows & columns in Available ParaBank services table
+try:
+    noOfRows = len(driver.find_elements(By.XPATH, "//table[4]/tbody/tr"))
+    noOfColumns = len(driver.find_elements(By.XPATH, "//table[4]/tbody/tr[2]/td"))
+
+    if(noOfRows == Utils.pRows and noOfColumns == Utils.pColums and driver.title == Utils.pageTitle):
+        print("TestCase -6: Passed")
+    else:
+        print("TestCase -6: Failed")
+
+except:
+    print("Doesn't perform TestCase -6")
+
+# Identify the number of "string" parameter are available in Parameters column of ParaBank services table
+
+try:
+    noOfRows = len(driver.find_elements(By.XPATH, "//table[4]/tbody/tr"))
+    for r in range(2, noOfRows + 1):
+        captureStr = driver.find_element(By.XPATH, "//table[4]/tbody[1]/tr[" + str(r) + "]/td[2]").text
+        if captureStr == Utils.parm1 or captureStr == Utils.parm2 or captureStr == Utils.parm3 or captureStr == Utils.parm4 or captureStr == Utils.parm5:
+            # print("Found")
+            for i in range(1, Utils.strFound+1):
+                        if r == r:
+                            num = 0
+                            num =num+i
+                            strFound = "string found"
+    # print("Total:",num)
+    if(num == Utils.strFound):
+        print("TestCase -7: Passed")
+    else:
+        print("TestCase -7: Failed")
+
+except:
+    print("Doesn't perform TestCase -7")
+
 
 driver.quit()
 

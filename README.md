@@ -19,3 +19,5 @@
   - Testing Type: Automation
   - Testing Tool: Selenium
   - Language: Python
+
+> [MindMap](https://drive.google.com/file/d/1lYhZj4IEt1Bg3DXGnq4mMujtFEdDsPPq/view?usp=sharing) of Executed TestCases
